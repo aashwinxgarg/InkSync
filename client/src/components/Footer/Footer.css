@@ -1,0 +1,22 @@
+.footer {
+    height: 120vh;
+    display: flex;
+    border-top-left-radius: 9%;
+    border-top-right-radius: 9%;
+    justify-content: center;
+    background: 
+
+    radial-gradient(circle at 75% 60%, rgba(50, 40, 100, 0.8), transparent 70%), /* Deep purple glow */
+    radial-gradient(circle at 50% 30%, rgba(20, 20, 50, 0.8), transparent 80%), /* Soft dark glow */
+    linear-gradient(135deg, #0f0f17, #1a1936, #2a2460, #3b338b, #5041aa, #374a80); /* Darker main gradient */
+    background-blend-mode: screen;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+main ul li {
+    cursor: pointer;
+}
+main ul li:hover {
+    opacity: 100;
+}
