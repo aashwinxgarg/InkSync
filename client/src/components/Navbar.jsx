@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/logo2.png"
 
 export default function Navbar() {
@@ -12,7 +13,7 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="/features" className="text-gray-700 hover:text-black">
+          <a href="/note-app" className="text-gray-700 hover:text-black">
             Notes
           </a>
           <a href="/customers" className="text-gray-700 hover:text-black">
