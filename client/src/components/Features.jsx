@@ -19,43 +19,49 @@ const Features = () => {
     return (
         <div className="bg-gray-100 pt-20">
             <div className=" flex items-center flex-row justify-center gap-10">
-                <FeatureCard
-                    image={img1}
-                    name="Notes"
-                    tag="Ready to use"
-                    desc={desc1}
-                    onClick={navigate('/note-app')}
-                />
-                <FeatureCard
-                    image={img2}
-                    name="Meet"
-                    tag="Under Development"
-                    desc={desc2}
-                    onClick={navigate('/meet')}
-                />
-                <FeatureCard
-                    image={img3}
-                    name="Canvas"
-                    tag="Under Development"
-                    desc={desc3}
-                    onClick={navigate('/canvas')}
-                />
+                <div onClick={()=>navigate("note-app")}>
+                    <FeatureCard
+                        image={img1}
+                        name="Notes"
+                        tag="Ready to use"
+                        desc={desc1}
+                    />
+                </div>
+                <div onClick={()=>navigate("/meet")} >
+                    <FeatureCard
+                        image={img2}
+                        name="Meet"
+                        tag="Under Development"
+                        desc={desc2}
+                    />
+                </div>
+                <div onClick={()=>navigate("/canvas")}>
+                    <FeatureCard
+                        image={img3}
+                        name="Canvas"
+                        tag="Under Development"
+                        desc={desc3}
+                    />
+                </div>
             </div>
             <div className="mt-8 flex items-center lg:flex-row md:justify-center gap-10">
-                <FeatureCard
-                    image={img4}
-                    name="Chat"
-                    tag="Ready to Use"
-                    desc={desc4}
-                    onClick={navigate('/chat-app')}
-                />
-                <FeatureCard
-                    image={img5}
-                    name="Docs"
-                    tag="Under Development"
-                    desc={desc5}
-                    onClick={navigate('/docs')}
-                />
+                <div onClick={()=>navigate("/chat-app")}>
+                    <FeatureCard
+                        image={img4}
+                        name="Chat"
+                        tag="Ready to Use"
+                        desc={desc4}
+                        
+                    />
+                </div>
+                <div onClick={()=>navigate("/docs")}>
+                    <FeatureCard
+                        image={img5}
+                        name="Docs"
+                        tag="Under Development"
+                        desc={desc5}
+                    />
+                </div>
             </div>
         </div>
     );
