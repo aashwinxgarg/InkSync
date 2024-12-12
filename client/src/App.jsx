@@ -8,26 +8,10 @@ import Features from './components/Features'
 import { onAuthStateChanged } from 'firebase/auth'
 import ScrollPage from './components/ScrollPage'
 import Footer from './components/Footer/Footer'
-import { AppContext } from './context/AppContext'
-import Login from './pages/Chat-App/Login/Login'
-import { auth } from './config/firebase'
-import { ToastContainer } from 'react-toastify'
-import Home from './pages/LandingPage/Home'
-import Chat from './pages/Chat-App/Chat/Chat'
-import ProfileUpdate from './pages/Chat-App/ProfileUpdate/ProfileUpdate'
+import NotesMain from './pages/NotesMain'
 
-const MainLayout = () => {
-    return (
-        <>
-            <Navbar />
-        </>
-    )
-}
 
 function App() {
-
-    
-
     return (
         <>
             <ToastContainer/>
@@ -37,6 +21,7 @@ function App() {
                 <Route path='/chat-app' element={<Chat/>} />
                 <Route path='/profile-update' element={<ProfileUpdate/>} />
                 <Route path='/chat-app/chat' element={<Chat/>} />
+                <Route path='/note-app' element={<NotesMain/>} />
             </Routes>
         </>
     );
