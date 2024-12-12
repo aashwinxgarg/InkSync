@@ -9,6 +9,11 @@ import { onAuthStateChanged } from 'firebase/auth'
 import ScrollPage from './components/ScrollPage'
 import Footer from './components/Footer/Footer'
 import NotesMain from './pages/NotesMain'
+import { ToastContainer } from 'react-toastify'
+import Home from './pages/LandingPage/Home'
+import Login from './pages/Chat-App/Login/Login'
+import Chat from './pages/Chat-App/Chat/Chat'
+import ProfileUpdate from './pages/Chat-App/ProfileUpdate/ProfileUpdate'
 
 
 function App() {

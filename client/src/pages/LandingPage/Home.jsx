@@ -13,7 +13,7 @@ const Home = () => {
         <Hero/>
         <CompanyCarousel/>
         <Features/>
-        <ScrollPage/>
+        <ScrollPage/> 
         <Footer/>
     </>
   )
