@@ -7,6 +7,7 @@ import CompanyCarousel from './components/CompanyCarousel'
 import Features from './components/Features'
 import ScrollPage from './components/ScrollPage'
 import Footer from './components/Footer/Footer'
+import NotesMain from './pages/NotesMain'
 
 const MainLayout = () => {
     return (
@@ -31,7 +32,10 @@ const router = createBrowserRouter([
         ),
     },
     {
-        path:'/note-app'
+        path:'/note-app',
+        element : (
+            <NotesMain/>
+        ),
     }
 ])
 
