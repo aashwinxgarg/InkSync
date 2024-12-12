@@ -1,42 +1,41 @@
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Route, RouterProvider, Routes, useNavigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import CompanyCarousel from './components/CompanyCarousel'
 import Features from './components/Features'
+import { onAuthStateChanged } from 'firebase/auth'
 import ScrollPage from './components/ScrollPage'
 import Footer from './components/Footer/Footer'
+import { AppContext } from './context/AppContext'
+import Login from './pages/Chat-App/Login/Login'
+import { auth } from './config/firebase'
+import { ToastContainer } from 'react-toastify'
+import Home from './pages/LandingPage/Home'
 
 const MainLayout = () => {
     return (
         <>
-            <Navbar/>
+            <Navbar />
         </>
     )
 }
 
-const router = createBrowserRouter([
-    {
-        path:'/',
-        element: (
-            <>
-                <Navbar/>
-                <Hero/>
-                <CompanyCarousel/>
-                <Features/>
-                <ScrollPage/>
-                <Footer/>
-            </>
-        ),
-    },
-    {
-        path:'/note-app'
-    }
-])
+
+
+
 
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <>
+            <ToastContainer />
+            <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/login' element={<Login/>} />
+            </Routes>
+        </>
+    );
 }
 export default App
 
