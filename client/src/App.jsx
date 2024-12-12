@@ -13,6 +13,8 @@ import Login from './pages/Chat-App/Login/Login'
 import { auth } from './config/firebase'
 import { ToastContainer } from 'react-toastify'
 import Home from './pages/LandingPage/Home'
+import Chat from './pages/Chat-App/Chat/Chat'
+import ProfileUpdate from './pages/Chat-App/ProfileUpdate/ProfileUpdate'
 
 const MainLayout = () => {
     return (
@@ -22,17 +24,19 @@ const MainLayout = () => {
     )
 }
 
-
-
-
-
 function App() {
+
+    
+
     return (
         <>
-            <ToastContainer />
+            <ToastContainer/>
             <Routes>
                 <Route path='/' element={<Home/>} />
                 <Route path='/login' element={<Login/>} />
+                <Route path='/chat-app' element={<Chat/>} />
+                <Route path='/profile-update' element={<ProfileUpdate/>} />
+                <Route path='/chat-app/chat' element={<Chat/>} />
             </Routes>
         </>
     );

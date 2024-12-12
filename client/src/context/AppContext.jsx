@@ -23,21 +23,21 @@ const AppContextProvider = (props) => {
             const userData = userSnap.data();
             setUserData(userData);
             if(userData.name) {
-                navigate('/')
+                navigate('/chat-app/chat')
             }
             else {
-                navigate('/profile')
+                navigate('/profile-update')
             }
             await updateDoc(userRef,{
                 lastSeen:Date.now()
             })
-            // setInterval( async ()=>{
-            //     if(auth.chatUser) {
-            //         await updateDoc(userRef,{
-            //             lastSeen:Date.now()
-            //         })
-            //     }
-            // },60000)
+            setInterval( async ()=>{
+                if(auth.chatUser) {
+                    await updateDoc(userRef,{
+                        lastSeen:Date.now()
+                    })
+                }
+            },60000)
         } catch (error) {
             
         }

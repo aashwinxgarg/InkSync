@@ -126,14 +126,14 @@ const LeftSidebar = () => {
     },[chatData])
 
   return (
-    <div className={`ls ${chatVisible?"hidden":""}`}>
+    <div className={'ls'}>
         <div className="ls-top">
             <div className="ls-nav">
                 <img src={assets.logo} alt="" className='logo' />
                 <div className="menu">
                     <img src={assets.menu_icon} alt="" />
                     <div className="sub-menu">
-                        <p onClick={()=>navigate('/profile')}>Edit Profile</p>
+                        <p onClick={()=>navigate('/profile-update')}>Edit Profile</p>
                         <hr />
                         <p onClick={()=>logout()}>Logout</p>
                     </div>

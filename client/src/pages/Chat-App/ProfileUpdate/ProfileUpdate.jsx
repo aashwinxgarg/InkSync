@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './ProfileUpdate.css'
-import assets from '../../assets/assets'
+import assets from '../../../assets/assets';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { auth, db } from '../../config/firebase';
-import { AppContext } from '../../context/AppContext';
+import { AppContext } from '../../../context/AppContext';
+import { auth, db } from '../../../config/firebase';
 
 const ProfileUpdate = () => {
 
@@ -16,27 +16,27 @@ const ProfileUpdate = () => {
     const [bio,setBio] = useState("");
     const [uid,setUid] = useState("");
     const {setUserData} = useContext(AppContext);
-
+ 
     const profileUpdate = async (event) => {
         event.preventDefault();
         try {
             const docRef = doc(db,'users',uid);
-            // if(name) {
-            //     await updateDoc(docRef,{
-            //         bio:bio,
-            //         name:name
-            //     })
-            // }
-            // else {
+            if(name) {
+                await updateDoc(docRef,{
+                    bio:bio,
+                    name:name
+                })
+            }
+            else {
                 
-            // }
+            }
             await updateDoc(docRef,{
                 bio:bio,
                 name:name
             })
             const snap = await getDoc(docRef);
             setUserData(snap.data());
-            navigate('/chat')
+            navigate('/chat-app/chat')
         } catch (error) {
             console.log(error);
             toast.error(error.message); 

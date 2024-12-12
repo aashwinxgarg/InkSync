@@ -11,98 +11,112 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
-    const {loadUserData} = useContext(AppContext);
+    const { loadUserData } = useContext(AppContext);
 
     useEffect(() => {
-        onAuthStateChanged(auth,async (user) => {
-            if(user) {
-                navigate('/');
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                navigate("/");
+            } else {
+                navigate("/login");
             }
-            else {
-                navigate('/login')
-            }
-        })
-    },[])
+        });
+    }, []);
 
-    const onSubmitHandler= (event) => {
+    const onSubmitHandler = (event) => {
         event.preventDefault();
-        if(currState==="Sign up") {
-            signup(userName,email,password);
+        if (currState === "Sign up") {
+            signup(userName, email, password);
+        } else {
+            login(email, password);
         }
-        else {
-            login(email,password);
-        }
-    }
-
+    };
 
     return (
-        <div className="login">
-            <img src={Logo} alt=""
-            className="logo" />
-            <form className="login-form"
-            onSubmit={onSubmitHandler}
-            >
-                <h2>{currState}</h2>
-                {currState === "Sign up" ? (
+        <>
+            <div className="p-10 cursor-pointer" onClick={()=> navigate('/')}>
+                <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 12H5M12 19l-7-7 7-7"
+                    />
+                </svg>
+            </div>
+            <div className="login">
+                <img src={Logo} alt="" className="logo" />
+                <form className="login-form" onSubmit={onSubmitHandler}>
+                    <h2>{currState}</h2>
+                    {currState === "Sign up" ? (
+                        <input
+                            onChange={(e) => setUserName(e.target.value)}
+                            value={userName}
+                            type="text"
+                            placeholder="username"
+                            className="form-input"
+                            required
+                        />
+                    ) : null}
                     <input
-                        onChange={(e) => setUserName(e.target.value)}
-                        value={userName}
-                        type="text"
-                        placeholder="username"
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        type="email"
+                        placeholder="Email Address"
                         className="form-input"
                         required
                     />
-                ) : null}
-                <input
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    type="email"
-                    placeholder="Email Address"
-                    className="form-input"
-                    required
-                />
-                <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    type="password"
-                    placeholder="password"
-                    className="form-input"
-                    required
-                />
-                <div className="login-term">
-                    <input type="checkbox" required/>
-                    <p>Agree to the terms of use and privacy policy.</p>
-                </div>
-                <button type="submit">
-                    {currState === "Sign up" ? "Create account" : "Login now"}
-                </button>
-                <div className="login-forgot">
-                    {currState === "Sign up" ? (
-                        <p className="login-toggle">
-                            Already have an account{" "}
-                            <span onClick={() => setCurrState("Login")}>
-                                Login here
-                            </span>
-                        </p>
-                    ) : (
-                        <p className="login-toggle">
-                            Create an account{" "}
-                            <span onClick={() => setCurrState("Sign up")}>
-                                click here
-                            </span>
-                        </p>
-                    )}
-                    {currState === "Login" ? (
-                        <p className="login-toggle">
-                            Forgot Password ?{" "}
-                            <span onClick={() => resetPass(email)}>
-                                reset here
-                            </span>
-                        </p>
-                    ) : null}
-                </div>
-            </form>
-        </div>
+                    <input
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        type="password"
+                        placeholder="password"
+                        className="form-input"
+                        required
+                    />
+                    <div className="login-term">
+                        <input type="checkbox" required />
+                        <p>Agree to the terms of use and privacy policy.</p>
+                    </div>
+                    <button type="submit">
+                        {currState === "Sign up"
+                            ? "Create account"
+                            : "Login now"}
+                    </button>
+                    <div className="login-forgot">
+                        {currState === "Sign up" ? (
+                            <p className="login-toggle">
+                                Already have an account{" "}
+                                <span onClick={() => setCurrState("Login")}>
+                                    Login here
+                                </span>
+                            </p>
+                        ) : (
+                            <p className="login-toggle">
+                                Create an account{" "}
+                                <span onClick={() => setCurrState("Sign up")}>
+                                    click here
+                                </span>
+                            </p>
+                        )}
+                        {currState === "Login" ? (
+                            <p className="login-toggle">
+                                Forgot Password ?{" "}
+                                <span onClick={() => resetPass(email)}>
+                                    reset here
+                                </span>
+                            </p>
+                        ) : null}
+                    </div>
+                </form>
+            </div>
+        </>
     );
 };
 import "./Login.css";

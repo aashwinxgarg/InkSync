@@ -5,6 +5,7 @@ import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "fi
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const firebaseConfig = {
     apiKey: "AIzaSyArJYi0KF54vIP5RXaqdrC8xdv2U6ovhQg",
     authDomain: "inksync-d95b3.firebaseapp.com",
@@ -29,8 +30,11 @@ const signup = async (username, email, password) => {
             email:email,
             name:"",
             avatar:"",
-            bio:"Hey there, I am using InkSync",
+            bio:"Hey there, I am using InkSync app",
             lastSeen:Date.now()
+        })
+        await setDoc(doc(db,"chats",user.uid),{
+            chatsData:[]
         })
     } catch (error) {
         console.error(error)

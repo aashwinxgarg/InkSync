@@ -72,7 +72,7 @@ const ChatBox = () => {
     },[messagesId])
 
   return chatUser ? (
-    <div className={`chat-box ${chatVisible?"":"hidden"}`}>
+    <div className={'chat-box'}>
         <div className="chat-user">
             <img src={assets.avatar_icon} alt="" />
             <p>{chatUser.userData.name} {Date.now()-chatUser.userData.lastSeen <= 70000 ? <img src={assets.green_dot} className='dot' alt="" /> : null} </p>

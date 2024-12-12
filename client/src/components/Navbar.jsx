@@ -55,7 +55,7 @@ export default function Navbar() {
                         Canvas
                     </a>
                     <a
-                        href="/pricing"
+                        href="/chat-app"
                         className="text-gray-700 hover:text-black"
                     >
                         Chat
@@ -97,7 +97,7 @@ export default function Navbar() {
                     </div>
                     :
                     <>
-                        <img src={assets.avatar_icon} alt="" srcset="" className="w-10" />
+                        <img src={assets.avatar_icon} alt="" className="w-10" />
                         <div onClick={()=>logout()}>
                         <a
                             href="/"
