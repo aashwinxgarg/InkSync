@@ -3,7 +3,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import TagInput from "./Notes/components/Input/TagInput";
 import { MdClose } from "react-icons/md";
-// import axiosInstance from "../../utils/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 function AddEditNotes({ noteData, type, getAllNotes, onClose, showToastMessage }) {
   const [title, setTitle] = useState(noteData?.title || "");
@@ -32,47 +32,47 @@ function AddEditNotes({ noteData, type, getAllNotes, onClose, showToastMessage }
   };
 
   // Add Note
-  // const addNewNote = async () => {
-  //   try {
-  //     const response = await axiosInstance.post("/add-note", {
-  //       title,
-  //       content, // Fixed to store Quill's formatted content
-  //       tags,
-  //     });
+  const addNewNote = async () => {
+    try {
+      const response = await axiosInstance.post("/add-note", {
+        title,
+        content, // Fixed to store Quill's formatted content
+        tags,
+      });
 
-  //     if (response.data && response.data.note) {
-  //       showToastMessage("Note Added Successfully");
-  //       getAllNotes();
-  //       onClose();
-  //     }
-  //   } catch (error) {
-  //     if (error.response?.data?.message) {
-  //       setError(error.response.data.message);
-  //     }
-  //   }
-  // };
+      if (response.data && response.data.note) {
+        showToastMessage("Note Added Successfully");
+        getAllNotes();
+        onClose();
+      }
+    } catch (error) {
+      if (error.response?.data?.message) {
+        setError(error.response.data.message);
+      }
+    }
+  };
 
   // Edit Note
-  // const editNote = async () => {
-  //   const noteId = noteData._id;
-  //   try {
-  //     const response = await axiosInstance.put("/edit-note/" + noteId, {
-  //       title,
-  //       content, // Fixed to store Quill's formatted content
-  //       tags,
-  //     });
+  const editNote = async () => {
+    const noteId = noteData._id;
+    try {
+      const response = await axiosInstance.put("/edit-note/" + noteId, {
+        title,
+        content, // Fixed to store Quill's formatted content
+        tags,
+      });
 
-  //     if (response.data && response.data.note) {
-  //       showToastMessage("Note Updated Successfully");
-  //       getAllNotes();
-  //       onClose();
-  //     }
-  //   } catch (error) {
-  //     if (error.response?.data?.message) {
-  //       setError(error.response.data.message);
-  //     }
-  //   }
-  // };
+      if (response.data && response.data.note) {
+        showToastMessage("Note Updated Successfully");
+        getAllNotes();
+        onClose();
+      }
+    } catch (error) {
+      if (error.response?.data?.message) {
+        setError(error.response.data.message);
+      }
+    }
+  };
 
   const handleAddNote = () => {
     if (!title) {

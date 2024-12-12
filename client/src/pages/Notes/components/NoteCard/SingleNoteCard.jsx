@@ -11,7 +11,6 @@ import moment from "moment";
 import { IoTrashOutline } from "react-icons/io5";
 import { BsPinAngle, BsPinAngleFill } from "react-icons/bs";
 
-
 import Modal from "react-modal";
 Modal.setAppElement("#root");
 
@@ -34,7 +33,7 @@ function SingleNoteCard({
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  
+
   // const onImageSelect = async() => {}
 
   return (
@@ -91,7 +90,22 @@ function SingleNoteCard({
             {moment(date).format("Do MMM YYYY")}
           </span>
 
-          
+          <div className="flex items-center gap-2">       
+            <MdEdit
+              className="icon-btn hover:text-green-600"
+              onClick={(e) => {
+                e.stopPropagation();
+                onEdit();
+              }}
+            />
+            <IoTrashOutline
+              className="icon-btn hover:text-red-500"
+              onClick={(e) => {
+                e.stopPropagation();
+                onDelete();
+              }}
+            />
+          </div>
         </div>
       </div>
 

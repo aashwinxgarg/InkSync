@@ -6,7 +6,7 @@ import SingleNoteCard from "./Notes/components/NoteCard/SingleNoteCard";
 // import { MdAdd } from "react-icons/md";
 import AddEditNotes from "./AddEditNotes";
 import Modal from "react-modal";
-// import axiosInstance from "../../utils/axiosInstance"; // PATH SHI KRNA HAI ABHI
+import axiosInstance from "../../utils/axiosInstance"; // PATH SHI KRNA HAI ABHI
 import Toast from "./Notes/components/ToastMessage/Toast";
 import { useNavigate } from "react-router-dom";
 import EmptyCard from "./Notes/components/EmptyCard/EmptyCard";
@@ -45,70 +45,70 @@ function NotesMain() {
   };
 // *************************************************************************
   // Get All Notes
-  // const getAllNotes = async () => {
-  //   try {
-  //     const response = await axiosInstance.get("/get-notes");
+  const getAllNotes = async () => {
+    try {
+      const response = await axiosInstance.get("/get-notes");
 
-  //     if (response.data && response.data.notes) {
-  //       setAllNotes(response.data.notes);
-  //     }
-  //   } catch (error) {
-  //     console.log("An unexpected error occurred...Try Again!!");
-  //   }
-  // };
+      if (response.data && response.data.notes) {
+        setAllNotes(response.data.notes);
+      }
+    } catch (error) {
+      console.log("An unexpected error occurred...Try Again!!");
+    }
+  };
 
   // Delete Notes
-  // const deleteNote = async (data) => {
+  const deleteNote = async (data) => {
 
-  //   const noteId = data._id;
-  //   try {
-  //     const response = await axiosInstance.delete("/delete-note/" + noteId)
+    const noteId = data._id;
+    try {
+      const response = await axiosInstance.delete("/delete-note/" + noteId)
 
-  //     if(response.data && !response.data.error){
-  //       showToastMessage("Note Deleted Successfully", 'delete')
-  //       getAllNotes();
-  //     }
+      if(response.data && !response.data.error){
+        showToastMessage("Note Deleted Successfully", 'delete')
+        getAllNotes();
+      }
 
-  //   } catch (error) {
-  //     if(
-  //       error.response &&
-  //       error.response.data &&
-  //       error.response.data.message
-  //     ){
-  //       console.log("An unexpected error occurred... Please try again!!");
+    } catch (error) {
+      if(
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ){
+        console.log("An unexpected error occurred... Please try again!!");
 
-  //     }
-  //   }
-  // }
+      }
+    }
+  }
 
   // const navigate = useNavigate();
 
   useEffect(() => {
-      // getAllNotes();
+      getAllNotes();
 
     return () => {}
   }, [])
 
 
   // Pin Note
-  // const updateIsPinned = async (noteData) => {
-  //   const noteId = noteData._id;
-  //     try {
-  //       const response = await axiosInstance.put("/update-note-pinned/" + noteId, {
-  //           isPinned : !noteData.isPinned
-  //         }
-  //       );
+  const updateIsPinned = async (noteData) => {
+    const noteId = noteData._id;
+      try {
+        const response = await axiosInstance.put("/update-note-pinned/" + noteId, {
+            isPinned : !noteData.isPinned
+          }
+        );
 
-  //       if(response.data && response.data.note){
-  //         showToastMessage("Note Updated Successfully");
-  //         getAllNotes();
-  //       }
+        if(response.data && response.data.note){
+          showToastMessage("Note Updated Successfully");
+          getAllNotes();
+        }
 
-  //     } catch (error) {
-  //       console.log(error);
+      } catch (error) {
+        console.log(error);
         
-  //     }
-  // }
+      }
+  }
 
 
   // Search Note
@@ -118,7 +118,7 @@ function NotesMain() {
   const handleSearch = () => {
     if(searchQuery == ""){
       setIsSearch(false);
-      // getAllNotes();
+      getAllNotes();
     }
     if(searchQuery){
       onSearchNote(searchQuery);
@@ -128,41 +128,41 @@ function NotesMain() {
   const onClearSearch = () => {
     setSearchQuery("");
     setIsSearch(false);
-    // getAllNotes();
+    getAllNotes();
   };
 
 
     // API Request
-  // const onSearchNote = async (query) => {
+  const onSearchNote = async (query) => {
     
-  //   try {
-  //     const response = await axiosInstance.get("/search-notes", {
-  //       params : {query},
-  //     });
+    try {
+      const response = await axiosInstance.get("/search-notes", {
+        params : {query},
+      });
 
-  //     if(response.data && response.data.notes){
-  //       setIsSearch(true);
-  //       setAllNotes(response.data.notes);
-  //     }
-  //     if (response.data.notes.length === 0) {
-  //       setAllNotes([]);
-  //       setIsSearch(false);
-  //       // return;
-  //     }
+      if(response.data && response.data.notes){
+        setIsSearch(true);
+        setAllNotes(response.data.notes);
+      }
+      if (response.data.notes.length === 0) {
+        setAllNotes([]);
+        setIsSearch(false);
+        // return;
+      }
 
-  //     console.log("Search query:", query);
-  //     console.log("Response:", response.data);
+      console.log("Search query:", query);
+      console.log("Response:", response.data);
 
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   // Instant Search with useEffect
   useEffect(() => {
     if (searchQuery.trim() === "") {
       setIsSearch(false);
-      // getAllNotes(); // Fetch all notes when search is cleared
+      getAllNotes(); // Fetch all notes when search is cleared
     } else {
       onSearchNote(searchQuery); // Fetch search results
     }
@@ -172,7 +172,7 @@ function NotesMain() {
   return (
     <>
     <Navbar/>
-      <div className="h-72 p-20 flex items-center justify-center ">
+      <div className="mt-24 mb-8 flex items-center justify-center ">
         <div className="h-20 flex items-center justify-center">
           
           <SearchBar
@@ -187,10 +187,10 @@ function NotesMain() {
         </div>
       </div>
 
-      <div className="p-28">
+      <div className="">
         {allNotes.length > 0 ? (
           <div
-            className="container w-[80%] mx-auto p-28 columns-2 lg:columns-4 md:columns-3 sm:columns-2 gap-x-3 lg:gap-x-6 md:gap-x-5 sm:gap-x-4"
+            className="container w-[80%] mx-auto columns-2 lg:columns-4 md:columns-3 sm:columns-2 gap-x-3 lg:gap-x-6 md:gap-x-5 sm:gap-x-4"
             // style={{ minHeight: "calc(100vh - 19vh)" }}
           >
             {allNotes.map((item, index) => (
@@ -242,7 +242,7 @@ function NotesMain() {
           onClose={() => {
             setOpenAddEditModel({ isShown: false, type: "add", data: null });
           }}
-          // getAllNotes={getAllNotes}
+          getAllNotes={getAllNotes}
           showToastMessage={showToastMessage}
         />
       </Modal>
