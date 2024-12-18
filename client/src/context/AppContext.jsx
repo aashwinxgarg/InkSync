@@ -16,6 +16,16 @@ const AppContextProvider = (props) => {
     const [chatUser,setChatUser] = useState(null); 
     const [chatVisible,setChatVisible] = useState(false);
 
+
+    // Helper function to get Firebase ID token
+    const getIdToken = async () => {
+        const user = auth.currentUser;
+        if (user) {
+            return await user.getIdToken();
+        }
+        return null;
+    };
+
     const loadUserData = async (uid) => {
         try {
             const userRef = doc(db,'users',uid);
@@ -43,6 +53,29 @@ const AppContextProvider = (props) => {
         }
     }
 
+    const loadUserData2 = async (uid) => {
+        try {
+            const userRef = doc(db,'users',uid);
+            const userSnap = await getDoc(userRef);
+            const userData = userSnap.data();
+            setUserData(userData);
+            
+            navigate('/note-app')
+            await updateDoc(userRef,{
+                lastSeen:Date.now()
+            })
+            setInterval( async ()=>{
+                if(auth.chatUser) {
+                    await updateDoc(userRef,{
+                        lastSeen:Date.now()
+                    })
+                }
+            },60000)
+        } catch (error) {
+            console.error("Error loading user data: ", error);
+        }
+    }
+
     useEffect(()=>{
         if(userData) {
             const chatRef = doc(db,'chats',userData.id);
@@ -66,7 +99,7 @@ const AppContextProvider = (props) => {
     const value = {
         userData,setUserData,
         chatData,setChatData,
-        loadUserData,
+        loadUserData, loadUserData2, getIdToken,
         messages,setMessages,
         messagesId,setMessagesId,
         chatUser,setChatUser,

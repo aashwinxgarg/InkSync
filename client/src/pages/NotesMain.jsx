@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../../src/components/Navbar";
 import SearchBar from "./Notes/components/SearchBar/SearchBar";
 import { useState, useEffect } from "react";
@@ -12,15 +12,19 @@ import { useNavigate } from "react-router-dom";
 import EmptyCard from "./Notes/components/EmptyCard/EmptyCard";
 import { auth } from "../config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { AppContext } from "../context/AppContext";
 
 
 
 function NotesMain() {
     const navigate = useNavigate();
+    const { loadUserData2 } = useContext(AppContext);
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                navigate("/note-app");
+              navigate("/note-app");
+              await loadUserData2(user.uid);
+              console.log(user.uid);
             } else {
                 navigate("/login");
             }
