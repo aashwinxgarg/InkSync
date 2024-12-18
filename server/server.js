@@ -1,5 +1,5 @@
-import express from "express";
-// const express = require ('express');
+// import express from "express";
+const express = require ('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 // const {ContactModel} = require("./Models/Contact.model");
