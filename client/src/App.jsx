@@ -14,6 +14,7 @@ import Home from './pages/LandingPage/Home'
 import Login from './pages/Chat-App/Login/Login'
 import Chat from './pages/Chat-App/Chat/Chat'
 import ProfileUpdate from './pages/Chat-App/ProfileUpdate/ProfileUpdate'
+import VideoCallPage from './pages/VideoCall'
 
 
 function App() {
@@ -24,10 +25,10 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home/>} />
                 <Route path='/login' element={<Login/>} />
-                <Route path='/chat-app' element={<Chat/>} />
                 <Route path='/profile-update' element={<ProfileUpdate/>} />
                 <Route path='/textink/chat' element={<Chat/>} />
                 <Route path='/note-app' element={<NotesMain/>} />
+                <Route path='/video-call/*' element={<VideoCallPage/>}/>
             </Routes>
         </>
     );
