@@ -59,7 +59,7 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/login' element={<Login/>} />                
+                <Route path='/login' element={<Login/>} />
                 <Route path='/profile-update' element={<ProfileUpdate/>} />
                 <Route path='/textink/chat' element={<Chat/>} />
                 <Route path='/note-app' element={<NotesMain/>} />
