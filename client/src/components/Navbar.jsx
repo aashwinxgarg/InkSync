@@ -179,7 +179,7 @@ export default function Navbar() {
                     >
                         TextInk
                     </a>
-                    <a href="/docs" className="text-gray-700 hover:text-black">
+                    <a href="/documentation" className="text-gray-700 hover:text-black">
                         Docs
                     </a>
                     <a
