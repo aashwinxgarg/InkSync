@@ -51,10 +51,12 @@ import ProfileUpdate from './pages/Chat-App/ProfileUpdate/ProfileUpdate';
 import NotesMain from './pages/NotesMain';
 import VideoCallPage from './pages/VideoCall';
 import Navbar from './components/Navbar';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
     return (
         <>
+        <Analytics/>
             <ToastContainer/>
             <Navbar/>
             <Routes>
@@ -63,7 +65,7 @@ function App() {
                 <Route path='/profile-update' element={<ProfileUpdate/>} />
                 <Route path='/textink/chat' element={<Chat/>} />
                 <Route path='/note-app' element={<NotesMain/>} />
-                <Route path="/video-call/*" element={<VideoCallPage />} />
+                <Route path="/inkonnect/*" element={<VideoCallPage />} />
             </Routes>
         </>
     );
