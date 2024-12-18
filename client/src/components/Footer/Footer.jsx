@@ -83,19 +83,8 @@ const Footer = () => {
           <li className='opacity-60'>MIT license</li>
           <li className='opacity-60'>Security</li>
           <li className='opacity-60'>Pro license</li>
-          <li className='font-semibold'>Resources</li>
-          <li className='opacity-60'>Release notes</li>
-          <li className='opacity-60'>Experiments</li>
-          <li className='opacity-60'>MIT license</li>
-          <li className='opacity-60'>Security</li>
-          <li className='opacity-60'>Pro license</li>
         </ul>
         <ul className='flex flex-col gap-2'>
-          <li className='font-semibold'>Connect</li>
-          <li className='opacity-60'>Github</li>
-          <li className='opacity-60'>Discord</li>
-          <li className='opacity-60'>LinkedIn</li>
-          <li className='opacity-60'>X</li>
           <li className='font-semibold'>Connect</li>
           <li className='opacity-60'>Github</li>
           <li className='opacity-60'>Discord</li>
