@@ -128,7 +128,7 @@ const RoomPage = () => {
     }, [roomId]);
 
     return (
-        <div style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div className='bg-gray-200' style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <div ref={meetingRef} style={{ width: "100%", maxWidth: "1200px", height: "85vh" }}></div>
         </div>
     );
