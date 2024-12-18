@@ -50,6 +50,7 @@ import Chat from './pages/Chat-App/Chat/Chat';
 import ProfileUpdate from './pages/Chat-App/ProfileUpdate/ProfileUpdate';
 import NotesMain from './pages/NotesMain';
 import VideoCallPage from './pages/VideoCall';
+import Navbar from './components/Navbar';
 
 function App() {
     return (

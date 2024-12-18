@@ -30,14 +30,27 @@
 // export default VideoCallPage;
 
 
-import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import HomePage from './VideoCall/Home';
 import RoomPage from './VideoCall/Room';
 import SplashScreen from './VideoCall/SplashScreen';
 import './VideoCall/SplashScreen.css';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../config/firebase';
+import { AppContext } from '../context/AppContext';
 
 function VideoCallPage() {
+    const navigate = useNavigate();
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                navigate("/video-call/home");
+            } else {
+                navigate("/login");
+            }
+        });
+    }, []);
     const [showSplash, setShowSplash] = useState(true);
 
     useEffect(() => {
