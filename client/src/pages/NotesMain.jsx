@@ -10,8 +10,22 @@ import axiosInstance from "../../utils/axiosInstance"; // PATH SHI KRNA HAI ABHI
 import Toast from "./Notes/components/ToastMessage/Toast";
 import { useNavigate } from "react-router-dom";
 import EmptyCard from "./Notes/components/EmptyCard/EmptyCard";
+import { auth } from "../config/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+
+
 
 function NotesMain() {
+    const navigate = useNavigate();
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                navigate("/note-app");
+            } else {
+                navigate("/login");
+            }
+        });
+    }, []);
   const [allNotes, setAllNotes] = useState([]);
 
   const [showToastMsg, setShowToastMsg] = useState({
