@@ -27,7 +27,7 @@ const Features = () => {
                         desc={desc1}
                     />
                 </div>
-                <div onClick={()=>navigate("/meet")} >
+                <div onClick={()=>navigate("/inkonnect")} >
                     <FeatureCard
                         image={img2}
                         name="Meet"
@@ -45,7 +45,7 @@ const Features = () => {
                 </div>
             </div>
             <div className="mt-8 flex items-center lg:flex-row md:justify-center gap-10">
-                <div onClick={()=>navigate("/chat-app")}>
+                <div onClick={()=>navigate("/textink/chat")}>
                     <FeatureCard
                         image={img4}
                         name="Chat"
