@@ -15,15 +15,18 @@ import { onAuthStateChanged } from "firebase/auth";
 import { AppContext } from "../context/AppContext";
 
 
-
 function NotesMain() {
     const navigate = useNavigate();
     const { loadUserData2 } = useContext(AppContext);
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-              navigate("/note-app");
-              await loadUserData2(user.uid);
+                try {
+                    await axiosInstance.post("/save-user", { uid: user.uid });
+                    navigate("/note-app");
+                } catch (error) {
+                    console.error("Error saving user UID to backend:", error);
+                }
               console.log(user.uid);
             } else {
                 navigate("/login");
@@ -201,7 +204,6 @@ function NotesMain() {
             // onSearchNote={onSearchNote}
             // handleClearSearch={handleClearSearch}
           />
-
         </div>
       </div>
 
