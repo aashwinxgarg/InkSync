@@ -52,11 +52,13 @@ import NotesMain from './pages/NotesMain';
 import VideoCallPage from './pages/VideoCall';
 import Navbar from './components/Navbar';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function App() {
     return (
         <>
         <Analytics/>
+        <SpeedInsights/>
             <ToastContainer/>
             <Navbar/>
             <Routes>

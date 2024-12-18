@@ -12,6 +12,7 @@
   "dependencies": {
     "@devnomic/marquee": "^1.0.2",
     "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^1.1.0",
     "@zegocloud/zego-uikit-prebuilt": "^2.13.2",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
