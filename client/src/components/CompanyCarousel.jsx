@@ -5,7 +5,7 @@ import React from "react";
 
 const CompanyCarousel = () => {
     return (
-        <div className="pt-20 bg-gray-100 size-auto">
+        <div className="pt-60 bg-gray-100 size-auto">
             <Marquee fade={true} pauseOnHover={true} numberOfCopies={4}>
                 <div className="p-5"><img src="https://cdn.prod.website-files.com/649fb1e58cd0c1375ad3909b/6679800e2efdf373581d13c8_linkedin.svg" alt="google" /></div>
                 <div className="p-5"><img src="https://cdn.prod.website-files.com/649fb1e58cd0c1375ad3909b/665ecfe1dd87825e576be850_productboard.svg" alt="microsoft" /></div>

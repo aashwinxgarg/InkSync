@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="footer flex flex-col gap-32">
+    <div className="footer flex flex-col">
       <header className='mt-20'>
         <h1 className='font-semibold text-8xl'>Start your Journey</h1>
         <h2 className='text-5xl mt-4 font-extralight tracking-wider'>with InkSync</h2>
@@ -23,7 +23,7 @@ const Footer = () => {
           Get started now →
         </button>
       </header>
-      <main className='text-white flex flex-row justify-center gap-20'>
+      <main className='text-white flex flex-row justify-center gap-20 mt-40'>
         <ul className='flex flex-col gap-2'>
           <li className='font-semibold'>
             Product
@@ -92,13 +92,8 @@ const Footer = () => {
           <li className='opacity-60'>X</li>
         </ul>
       </main>
-      <footer className='flex justify-center'>
+      <footer className='flex justify-center mt-24'>
         <ul className='flex flex-row gap-10 text-gray-400'>
-          <li className='text-white'>© 2024 InkSync</li>
-          <li>Legal Notice</li>
-          <li>System Status</li>
-          <li>Privacy Policy</li>
-          <li>Terms</li>
           <li className='text-white'>© 2024 InkSync</li>
           <li>Legal Notice</li>
           <li>System Status</li>
