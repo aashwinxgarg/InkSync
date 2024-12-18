@@ -112,7 +112,7 @@ const RoomPage = () => {
                 sharedLinks: [
                     {
                         name: 'Copy Link',
-                        url: `http://localhost:5173/video-call/room/${roomId}`,
+                        url: `ink-sync-three.vercel.app/inkonnect/room/${roomId}`,
                     },
                 ],
                 scenario: {

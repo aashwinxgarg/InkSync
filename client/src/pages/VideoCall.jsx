@@ -45,7 +45,7 @@ function VideoCallPage() {
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                navigate("/video-call/home");
+                navigate("/inkonnect/home");
             } else {
                 navigate("/login");
             }

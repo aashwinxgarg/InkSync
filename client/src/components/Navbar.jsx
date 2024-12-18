@@ -162,10 +162,10 @@ export default function Navbar() {
                         Notes
                     </a>
                     <a
-                        href="/video-call"
+                        href="/inkonnect"
                         className="text-gray-700 hover:text-black"
                     >
-                        Meet
+                        Inkonnect
                     </a>
                     <a
                         href="/enterprise"
@@ -198,7 +198,7 @@ export default function Navbar() {
                         >
                             <span>Sign in</span>
                             <svg
-                                className="w-4 h-4"
+                                className="w-4 h-4 cursor-pointer"
                                 fill="none"
                                 stroke="currentColor"
                                 strokeWidth={2}

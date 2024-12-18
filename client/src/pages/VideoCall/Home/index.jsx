@@ -6,7 +6,7 @@ const HomePage = () => {
     const navigate = useNavigate();
 
     const handleJoinRoom = useCallback(() => {
-        navigate(`/video-call/room/${value}`);
+        navigate(`/inkonnect/room/${value}`);
     }, [navigate, value]);
 
     const styles = {
@@ -61,7 +61,7 @@ const HomePage = () => {
 
     return (
         <div style={styles.container}>
-            <h1 style={styles.title}>TalkMe</h1>
+            <h1 style={styles.title}>Inkonnect</h1>
             <input
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
