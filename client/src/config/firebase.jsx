@@ -36,6 +36,14 @@ const signup = async (username, email, password) => {
         await setDoc(doc(db,"chats",user.uid),{
             chatsData:[]
         })
+        await setDoc(doc(db,"notes",user.uid),{
+            title:"",
+            content:"",
+            tags:[],
+            isPinned:false,
+            userId:user.uid,
+            createdOn:Date.now(),
+        })
     } catch (error) {
         console.error(error)
         toast.error(error.code.split('/')[1].split('-').join(" "))

@@ -23,7 +23,7 @@ const AppContextProvider = (props) => {
             const userData = userSnap.data();
             setUserData(userData);
             if(userData.name) {
-                navigate('/chat-app/chat')
+                navigate('/textink/chat')
             }
             else {
                 navigate('/profile-update')

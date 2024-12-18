@@ -54,13 +54,14 @@ import VideoCallPage from './pages/VideoCall';
 function App() {
     return (
         <>
-            <ToastContainer />
+            <ToastContainer/>
+            <Navbar/>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/chat-app" element={<Chat />} />
-                <Route path="/profile-update" element={<ProfileUpdate />} />
-                <Route path="/note-app" element={<NotesMain />} />
+                <Route path='/' element={<Home/>} />
+                <Route path='/login' element={<Login/>} />                
+                <Route path='/profile-update' element={<ProfileUpdate/>} />
+                <Route path='/textink/chat' element={<Chat/>} />
+                <Route path='/note-app' element={<NotesMain/>} />
                 <Route path="/video-call/*" element={<VideoCallPage />} />
             </Routes>
         </>
