@@ -68,7 +68,7 @@ const Login = () => {
                         <input type="checkbox" required />
                         <p>Agree to the terms of use and privacy policy.</p>
                     </div>
-                    <button type="submit">
+                    <button type="submit" >
                         {currState === "Sign up"
                             ? "Create account"
                             : "Login now"}

@@ -1,8 +1,9 @@
 import React from "react";
+// import Features from "./Features.css";
 
 const FeatureCard = ({image, name, tag, desc}) => {
     return (
-        <div className="flex flex-col max-w-96 border-black bg-white p-10 rounded-2xl hover:rounded-3xl hover:scale-105 hover:shadow-lg transform transition-transform duration-300 ease-in-out cursor-pointer max-h-400px">
+        <div id="sizze" className="flex flex-col max-w-96 border-black bg-white p-10 rounded-2xl hover:rounded-3xl hover:scale-105 hover:shadow-lg transform transition-transform duration-300 ease-in-out cursor-pointer max-h-400px">
             <div className="">
                 <img
                     src={image}
