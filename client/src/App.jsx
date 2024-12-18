@@ -20,12 +20,13 @@ function App() {
     return (
         <>
             <ToastContainer/>
+            <Navbar/>
             <Routes>
                 <Route path='/' element={<Home/>} />
                 <Route path='/login' element={<Login/>} />
                 <Route path='/chat-app' element={<Chat/>} />
                 <Route path='/profile-update' element={<ProfileUpdate/>} />
-                <Route path='/chat-app/chat' element={<Chat/>} />
+                <Route path='/textink/chat' element={<Chat/>} />
                 <Route path='/note-app' element={<NotesMain/>} />
             </Routes>
         </>

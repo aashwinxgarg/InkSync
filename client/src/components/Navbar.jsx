@@ -10,19 +10,22 @@ export default function Navbar() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        onAuthStateChanged(auth,async (user) => {
-            if(user) {
-                setLoginState("loggedin")
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                setLoginState("loggedin");
+            } else {
+                setLoginState("notloggedin");
             }
-            else {
-                setLoginState("notloggedin")
-            }
-            navigate('/');
-        })
-    },[])
+            navigate("/");
+        });
+    }, []);
 
     return (
-        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white/80 shadow-lg rounded-xl px-2 py-2 z-50 backdrop-blur-md">
+        <nav
+            className={`fixed top-4 left-1/2 transform -translate-x-1/2 bg-white/80 shadow-lg rounded-xl px-2 py-2 z-50 backdrop-blur-md ${
+                loginState === "loggedin" ? "pr-14" : null
+            }`}
+        >
             <div className="flex items-center justify-between space-x-8">
                 {/* Logo */}
                 <a href="/" className="flex items-center">
@@ -55,10 +58,10 @@ export default function Navbar() {
                         Canvas
                     </a>
                     <a
-                        href="/chat-app"
+                        href="/textink/chat"
                         className="text-gray-700 hover:text-black"
                     >
-                        Chat
+                        TextInk
                     </a>
                     <a href="/docs" className="text-gray-700 hover:text-black">
                         Docs
@@ -71,8 +74,7 @@ export default function Navbar() {
                     </a>
                 </div>
                 {/* Sign-in Button */}
-                {
-                loginState==="notloggedin"?
+                {loginState === "notloggedin" ? (
                     <div>
                         <a
                             href="/login"
@@ -95,19 +97,24 @@ export default function Navbar() {
                             </svg>
                         </a>
                     </div>
-                    :
+                ) : (
                     <>
-                        <img src={assets.avatar_icon} alt="" className="w-10" />
-                        <div onClick={()=>logout()}>
-                        <a
-                            href="/"
-                            className="-ml-3 px-2 py-2 bg-black text-white rounded-xl flex items-center hover:bg-gray-800 whitespace-nowrap"
-                        >
-                            <span>Logout</span>
-                        </a>
-                    </div>
+                        <img
+                            onClick={() => navigate("/profile-update")}
+                            src={assets.avatar_icon}
+                            alt=""
+                            className="w-10"
+                        />
+                        <div onClick={() => logout()}>
+                            <a
+                                href="/"
+                                className="-ml-3 px-4 py-2 bg-black text-white rounded-xl flex items-center hover:bg-gray-800 whitespace-nowrap"
+                            >
+                                <span>Logout</span>
+                            </a>
+                        </div>
                     </>
-                }
+                )}
             </div>
         </nav>
     );
