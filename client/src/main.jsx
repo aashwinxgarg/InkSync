@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import AppContextProvider from './context/AppContext.jsx'
+import reportWebVitals from './pages/VideoCall/reportWebVitals.js'
 
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>
@@ -12,3 +13,6 @@ createRoot(document.getElementById('root')).render(
         </AppContextProvider>
     </BrowserRouter>
 )
+
+
+reportWebVitals();

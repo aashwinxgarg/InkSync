@@ -8,13 +8,11 @@ export default function Hero() {
                 <div className="text-9xl text-black font-bold">
                     <h1 className="py-4">Take Control Of Your</h1>
                     <div className="ani flex flex-row py-4">
-                        <h1 className="h-36 relativve overflow-hidden">
-                            Tasks
+                        <h1 className="h-36 relative overflow-hidden border-black border-2">
+                            <div className="">Tasks</div>
                             <span className="ml-96 text-gray-400">Discuss</span>
                             <span className="ml-96 text-gray-400">Track</span>
-                            <span className="ml-96 text-gray-400">
-                                Organize
-                            </span>
+                            <span className="ml-96 text-gray-400">Organize</span>
                             <span className="ml-96 text-gray-400">Manage</span>
                         </h1>
                     </div>

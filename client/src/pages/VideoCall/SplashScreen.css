@@ -1,0 +1,156 @@
+/* Crazy neon glow, glitch effects, and 3D animations */
+@keyframes neonGlow {
+    0%, 100% {
+      text-shadow: 
+          0 0 20px rgba(255, 105, 180, 0.8),
+          0 0 40px rgba(255, 105, 180, 0.7), 
+          0 0 60px rgba(255, 105, 180, 0.5),
+          0 0 80px rgba(255, 105, 180, 0.4), 
+          0 0 100px rgba(255, 105, 180, 0.2);
+      color: #ff69b4;
+    }
+    25% {
+      text-shadow: 
+          0 0 20px rgba(0, 255, 234, 0.8),
+          0 0 40px rgba(0, 255, 234, 0.7), 
+          0 0 60px rgba(0, 255, 234, 0.5), 
+          0 0 80px rgba(0, 255, 234, 0.4);
+      color: #00ffea;
+    }
+    50% {
+      text-shadow: 
+          0 0 20px rgba(255, 255, 0, 0.8),
+          0 0 40px rgba(255, 255, 0, 0.7), 
+          0 0 60px rgba(255, 255, 0, 0.5), 
+          0 0 80px rgba(255, 255, 0, 0.4);
+      color: #ffff00;
+    }
+    75% {
+      text-shadow: 
+          0 0 20px rgba(255, 0, 255, 0.8),
+          0 0 40px rgba(255, 0, 255, 0.7), 
+          0 0 60px rgba(255, 0, 255, 0.5), 
+          0 0 80px rgba(255, 0, 255, 0.4);
+      color: #ff00ff;
+    }
+  }
+  
+  @keyframes moveText {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-15px) rotate(-5deg) scale(1.05);
+    }
+    50% {
+      transform: translateY(10px) rotate(5deg) scale(1.1);
+    }
+    75% {
+      transform: translateY(-10px) rotate(-3deg) scale(1.05);
+    }
+  }
+  
+  @keyframes glitch {
+    0% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(0.5deg);
+    }
+    10% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(-0.5deg);
+    }
+    20% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(0deg);
+    }
+    30% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(-0.3deg);
+    }
+    40% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(0deg);
+    }
+    50% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(0.5deg);
+    }
+    60% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(-0.5deg);
+    }
+    70% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(0deg);
+    }
+    80% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(-0.3deg);
+    }
+    90% {
+      clip: rect(0, 9999px, 10px, 0);
+      transform: skew(0deg);
+    }
+  }
+  
+  @keyframes backgroundShift {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  .splash-container {
+    display: flex;
+    flex-direction: column; /* Stack title and subtitle vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(270deg, #000, #111);
+    overflow: hidden;
+    position: relative;
+    perspective: 1000px; /* Add perspective for 3D effects */
+  }
+  
+  .splash-title {
+    font-size: 5rem; /* Increased font size for more impact */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: neonGlow 2s infinite alternate, moveText 3s infinite ease-in-out, pulse 2s infinite; /* Added pulse animation */
+    transform: translateZ(50px); /* 3D effect */
+    color: #ff69b4;
+  }
+  
+  .splash-subtitle {
+    font-size: 1.8rem; /* Increased font size */
+    margin-top: 1rem;
+    color: #fff;
+    opacity: 0.9;
+    animation: glitch 1s infinite, pulse 1s infinite alternate;
+    transform: translateZ(30px); /* Slight 3D effect */
+  }
+  
+  /* Updated background effects */
+  .background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=1080') repeat;
+    opacity: 0.1;
+    filter: blur(10px);
+    animation: backgroundShift 10s linear infinite;
+  }
+  
