@@ -10,6 +10,7 @@ const { NotesModel } = require('./models/Notes.model');
 const jwt = require("jsonwebtoken");
 const {authenticateToken} = require('./utilities');
 const { restart } = require('nodemon');
+const User = require('./models/User.model');
 
 
 const app = express();
@@ -52,6 +53,26 @@ app.use(express.json());
 // **************************** BACKEND APIs ******************************* //
 
 // Create Account
+app.post("/save-user", async (req, res) => {
+    const { uid } = req.body;
+
+    if (!uid) {
+        return res.status(400).json({ error: "UID is required" });
+    }
+    try {
+        console.log("UID received:", uid);
+        let user = await User.findOne({ uid });
+        if (!user) {
+            user = new User({ uid });
+            await user.save();
+        }
+        res.status(200).json({ message: "User saved successfully", user });
+    } catch (error) {
+        console.error("Error saving user:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
 app.post("/create-account", async (req,res) => { 
 
     const {fullname, email, password} = req.body;
@@ -145,7 +166,7 @@ app.post("/login", async (req,res) => {
 app.get("/get-user", authenticateToken, async (req,res) => { 
     const {user} = req.user;
 
-    const isUser = await UserModel.findOne({_id : user._id});
+    const isUser = await User.findOne({_id : user.uid});
 
     if(!isUser){
         return res.sendStatus(401);
