@@ -34,7 +34,7 @@ const ProfileUpdate = () => {
             });
             const snap = await getDoc(docRef);
             setUserData(snap.data());
-            navigate("/textink/chat");
+            navigate("/");
         } catch (error) {
             console.log(error);
             toast.error(error.message);
