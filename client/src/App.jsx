@@ -53,7 +53,6 @@ import VideoCallPage from './pages/VideoCall';
 import Navbar from './components/Navbar';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
-import Docs from './components/Docs';
 
 function App() {
     return (
@@ -69,7 +68,6 @@ function App() {
                 <Route path='/textink/chat' element={<Chat/>} />
                 <Route path='/note-app' element={<NotesMain/>} />
                 <Route path="/inkonnect/*" element={<VideoCallPage />} />
-                <Route path="/documentation" element={<Docs/>} />
 
             </Routes>
         </>
