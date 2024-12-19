@@ -159,7 +159,7 @@ export default function Navbar() {
                         href="/note-app"
                         className="text-gray-700 hover:text-black"
                     >
-                        Notes
+                        InkPin
                     </a>
                     <a
                         href="/inkonnect"
