@@ -182,12 +182,12 @@ export default function Navbar() {
                     <a href="/documentation" className="text-gray-700 hover:text-black">
                         Docs
                     </a>
-                    <a
+                    {/* <a
                         href="/contact-sales"
                         className="text-gray-700 hover:text-black"
                     >
                         Contact
-                    </a>
+                    </a> */}
                 </div>
                 {/* Sign-in Button */}
                 {loginState === "notloggedin" ? (
